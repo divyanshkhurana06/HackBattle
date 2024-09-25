@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HostelFix - Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #111111 40%, #0e3960 100%);
+            color: #fff;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+            margin-right: -10px;
+            vertical-align: middle;
+        }
+
+        .navbar .logo span {
+            font-size: 24px;
+            font-weight: bold;
+            color: #cf799e;
+            vertical-align: middle;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar ul li {
+            display: inline-block;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            padding: 8px 15px;
+            transition: 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #b88fe7;
+            border-radius: 5px;
+        }
+
+        .hero {
+            height: 100vh;
+            background: url('hostelfix-bg.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            color: #cf799e;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        .hero .btn {
+            padding: 15px 35px;
+            background-color: #cf799e;
+            color: white;
+            font-size: 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background-color: #b88fe7;
+            transform: scale(1.05);
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 60px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card h2 {
+            color: #b88fe7;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        .scrollable-section {
+            padding: 20px;
+        }
+
+        .scrollable-section h2 {
+            text-align: center;
+            color: #cf799e;
+            margin-bottom: 20px;
+        }
+
+        .scrollable-section .scroll {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            max-height: 250px;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .scrollable-section .scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .scrollable-section .scroll::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 4px;
+        }
+
+        .team-member {
+            text-align: center;
+            width: 150px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .team-member h3 {
+            color: #b88fe7;
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .footer {
+            background-color: #000;
+            text-align: center;
+            padding: 20px;
+            color: #bbb;
+        }
+
+        .footer p {
+            margin-bottom: 5px;
+        }
+
+        .footer .glow {
+            color: #cf799e;
+            transition: text-shadow 0.3s ease, color 0.3s ease;
+        }
+
+        .footer .glow:hover {
+            text-shadow: 0 0 10px #cf799e;
+            color: #fff;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="my-logo-url.jpeg" alt="Logo">
+            <span>HostelFix</span>
+        </div>
+        <ul>
+            <li><a href="#lostfound">Lost & Found</a></li>
+            <li><a href="#report">Report a Problem</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#messages">Messages</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome to HostelFix</h1>
+        <p>Your one-stop solution for all hostel and campus related services</p>
+        <button class="btn" onclick="window.location.href='#features'">Explore Features</button>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="feature-card" id="lostfound">
+            <h2>Lost & Found</h2>
+            <p>Report lost or found items easily. Reclaim your belongings swiftly.</p>
+        </div>
+        <div class="feature-card" id="report">
+            <h2>Report a Problem</h2>
+            <p>Facing an issue? Report problems and get timely assistance.</p>
+        </div>
+        <div class="feature-card" id="profile">
+            <h2>Profile</h2>
+            <p>Manage your account, update your contact details, and more.</p>
+        </div>
+        <div class="feature-card" id="messages">
+            <h2>Messages</h2>
+            <p>Stay connected. View important announcements and messages.</p>
+        </div>
+    </section>
+
+    <!-- Scrollable Section - Our Team -->
+    <section class="scrollable-section">
+        <h2>Our Team</h2>
+        <div class="scroll">
+            <div class="team-member">
+                <img src="team-member1.jpg" alt="Team Member 1">
+                <h3>John Doe</h3>
+                <p>Founder & CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="team-member2.jpg" alt="Team Member 2">
+                <h3>Jane Smith</h3>
+                <p>Marketing Head</p>
+            </div>
+            <div class="team-member">
+                <img src="team-member3.jpg" alt="Team Member 3">
+                <h3>Bob Johnson</h3>
+                <p>Lead Developer</p>
+            </div>
+            <div class="team-member">
+                <img src="team-member4.jpg" alt="Team Member 4">
+                <h3>Alice Brown</h3>
+                <p>UX/UI Designer</p>
+            </div>
+            <div class="team-member">
+                <img src="team-member5.jpg" alt="Team Member 5">
+                <h3>Michael Green</h3>
+                <p>Data Scientist</p>
+            </div>
+            <div class="team-member">
+                <img src="team-member6.jpg" alt="Team Member 6">
+                <h3>Sara White</h3>
+                <p>Operations Manager</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>By Team Negative Aura</p>
+        <p>
+            Fed by <span class="glow">Burger King</span>
+            |        With help of <span class="glow">TechKnowGreen Solution Limited</span>
+        </p>
+    </div>
+</body>
+
+</html>
