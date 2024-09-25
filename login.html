@@ -20,16 +20,18 @@
             display: flex;
             color: #fff;
             position: relative;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
             background-color: rgba(255, 255, 255, 0.15);
-            padding: 40px;
+            padding: 60px;
             border-radius: 15px;
             box-shadow: 0px 10px 40px rgba(255, 255, 255, 0.3);
             text-align: center;
             width: 400px;
-            margin-left: 50px;
+            margin-right: 20px;
             animation: slideIn 1.5s ease-in-out;
         }
 
@@ -47,7 +49,7 @@
         h1 {
             font-size: 36px;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             color: #b88fe7;
         }
 
@@ -64,51 +66,6 @@
             margin-right: 10px;
         }
 
-        p {
-            font-size: 16px;
-            margin-bottom: 30px;
-            color: #eaeaea;
-        }
-
-        .input-container {
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .input-container input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #fff;
-            border: none;
-            font-size: 16px;
-            transition: 0.3s ease;
-        }
-
-        .input-container input:focus {
-            background-color: rgba(255, 255, 255, 0.3);
-            outline: none;
-            box-shadow: 0px 0px 5px #9862c4;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 15px;
-            background-color: #d162a7;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #ff8800;
-            transform: scale(1.05);
-        }
-
         .google-btn {
             width: 100%;
             padding: 15px;
@@ -118,8 +75,8 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 18px;
-            margin-top: 10px;
             transition: background-color 0.3s, transform 0.3s;
+            margin-top: 20px;
         }
 
         .google-btn:hover {
@@ -144,85 +101,13 @@
             color: #ffe066;
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); 
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #333;
-            padding: 40px;
-            border-radius: 10px;
-            width: 350px;
-            box-shadow: 0px 10px 40px rgba(255, 255, 255, 0.4);
-            color: #fff;
-            text-align: center;
-        }
-
-        .modal-content h2 {
-            color: #9862c4;
-            margin-bottom: 20px;
-        }
-
-        .close-modal {
-            font-size: 25px;
-            color: #9862c4;
-            position: absolute;
-            right: 15px;
-            top: 10px;
-            cursor: pointer;
-        }
-
-        .close-modal:hover {
-            color: #ffe066;
-        }
-
-        .footer {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-size: 14px;
-            color: #999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .footer:hover {
-            opacity: 1;
-        }
-
-        .footer a {
-            color: #9862c4;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: #ffe066;
-        }
-
-        .forgot-link {
-            display: block;
-            color: #9862c4;
-            text-decoration: underline;
-            margin-top: 10px;
-            font-size: 14px;
-        }
-
         .services-info {
             position: absolute;
             right: 50px;
-            top: 10%;
+            top: 25%;
             width: 400px;
             background-color: rgba(255, 255, 255, 0.1);
-            padding: 30px;
+            padding: 40px;
             border-radius: 15px;
             box-shadow: 0px 10px 40px rgba(255, 255, 255, 0.2);
         }
@@ -264,12 +149,7 @@
         .services-info ul li:hover span {
             color: #ffe066;
         }
-
     </style>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
-
 </head>
 <body>
 
@@ -281,36 +161,9 @@
     </div>
     <p>Manage lost & found items and report hostel issues easily.</p>
 
-    <div class="input-container">
-        <input type="email" placeholder="Enter your email" required>
-    </div>
-    <div class="input-container">
-        <input type="password" placeholder="Enter your password" required>
-    </div>
-
-    <button class="btn" id="loginBtn">Login</button>
     <button class="google-btn" id="googleLoginBtn">Login with Google</button>
 
-    <p class="extra-link">New here? <a id="openSignUpModal">Sign Up</a></p>
-    <p class="extra-link">Forgot password? <a id="forgotPassword">Recover</a></p>
-</div>
-
-<!-- Sign Up Modal -->
-<div id="signUpModal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" id="closeModal">&times;</span>
-        <h2>Create Account</h2>
-        <div class="input-container">
-            <input type="text" placeholder="Enter your name" required>
-        </div>
-        <div class="input-container">
-            <input type="email" placeholder="Enter your email" required>
-        </div>
-        <div class="input-container">
-            <input type="password" placeholder="Enter your password" required>
-        </div>
-        <button class="btn" id="registerBtn">Register</button>
-    </div>
+    <p class="extra-link">Join our community and explore!</p>
 </div>
 
 <!-- Services Info on the Right -->
@@ -325,95 +178,10 @@
 </div>
 
 <script>
-    document.getElementById('openSignUpModal').onclick = function() {
-        document.getElementById('signUpModal').style.display = 'flex';
-    };
-
-    document.getElementById('closeModal').onclick = function() {
-        document.getElementById('signUpModal').style.display = 'none';
-    };
-
-    window.onclick = function(event) {
-        if (event.target === document.getElementById('signUpModal')) {
-            document.getElementById('signUpModal').style.display = 'none';
-        }
-    };
-
-    // Dummy button functions
-    document.getElementById('loginBtn').onclick = function() {
-        alert('Login button clicked!');
-    };
-
     document.getElementById('googleLoginBtn').onclick = function() {
-        alert('Login with Google button clicked!');
+        // Redirect to middle1.html on button click
+        window.location.href = "middle1.html"; // Redirect to middle1.html
     };
-
-    document.getElementById('registerBtn').onclick = function() {
-        alert('Register button clicked!');
-    };
-    const firebaseConfig = {
-        apiKey: "AIzaSyBI_h3gQ1rbQafUGvm5pDXFLUu3I51kQ38",
-        authDomain: "hackbattle-e99ce.firebaseapp.com",
-        projectId: "hackbattle-e99ce",
-        storageBucket: "hackbattle-e99ce.appspot.com",
-        messagingSenderId: "112495791818",
-        appId: "1:112495791818:web:6b52546d2e2960d2b72e33",
-        measurementId: "G-XE6FRSDF1S"
-};
-
-// Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const db = firebase.firestore();
-
-
-document.getElementById('loginBtn').onclick = function() {
-    const email = document.querySelector('input[type="email"]').value;
-    const password = document.querySelector('input[type="password"]').value;
-    
-    auth.signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            alert('Login successful!');
-            // Redirect or perform actions after login
-        })
-        .catch((error) => {
-            alert(error.message);
-        });
-};
-document.getElementById('registerBtn').onclick = function() {
-    const name = document.querySelector('input[placeholder="Enter your name"]').value;
-    const email = document.querySelector('input[placeholder="Enter your email"]').value;
-    const password = document.querySelector('input[placeholder="Enter your password"]').value;
-
-    auth.createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            // Store additional user info in Firestore
-            return db.collection('users').doc(user.uid).set({
-                name: name,
-                email: email
-            });
-        })
-        .then(() => {
-            alert('Registration successful!');
-            // Redirect or perform actions after registration
-        })
-        .catch((error) => {
-            alert(error.message);
-        });
-};
-
-document.getElementById('googleLoginBtn').onclick = function() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider)
-        .then((result) => {
-            const user = result.user;
-            alert("Google Login successful!");
-        })
-        .catch((error) => {
-            alert("Error: " + error.message);
-        });
-};
 </script>
 
 </body>
