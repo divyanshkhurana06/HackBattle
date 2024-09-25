@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HostelFix - Create Your Profile</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            background: linear-gradient(135deg, #111111 40%, #0e3960 100%);
+            display: flex;
+            color: #fff;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 40px rgba(255, 255, 255, 0.3);
+            text-align: center;
+            width: 400px;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #af73f3;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #eaeaea;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            transition: 0.3s ease;
+        }
+
+        .input-container input:focus {
+            background-color: rgba(255, 255, 255, 0.3);
+            outline: none;
+            box-shadow: 0px 0px 5px #ffcc00;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #811544;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ff8800;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer:hover {
+            opacity: 1;
+        }
+
+        .footer a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #ffe066;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Profile Container -->
+<div class="container">
+    <h1>Create Your Profile</h1>
+    <p>Please fill out the information below.</p>
+
+    <div class="input-container">
+        <input type="text" placeholder="Registration Number" required>
+    </div>
+    <div class="input-container">
+        <input type="text" placeholder="Room Number" required>
+    </div>
+    <div class="input-container">
+        <input type="text" placeholder="Hostel Block Name" required>
+    </div>
+    <div class="input-container">
+        <input type="text" placeholder="Contact Info" required>
+    </div>
+
+    <button class="btn" id="saveProfileBtn">Save Profile</button>
+
+    <p class="footer">Already have a profile? <a href="home1.html">Go to Home</a></p>
+</div>
+
+<script>
+    document.getElementById('saveProfileBtn').onclick = function() {
+        alert('Profile saved successfully!');
+        window.location.href = 'home1.html'; // Redirect to home1.html after saving the profile
+    };
+</script>
+
+</body>
+</html>
