@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express()
-const port = 8080
+const port = 8000
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -25,6 +25,16 @@ app.get('/profile1', (req, res) => {
 app.get('/reportproblem', (req, res) => {
     res.render('reportproblem')
 })
+
+app.get('/middle1', (req, res) => {
+    res.render('middle1')
+})
+
+app.get('/message1', (req, res) => {
+    res.render('message1')
+})
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

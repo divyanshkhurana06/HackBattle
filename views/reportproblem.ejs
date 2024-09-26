@@ -20,8 +20,6 @@
             color: #fff;
             overflow-x: hidden;
             padding-top: 60px; /* Adjust padding for fixed navbar */
-            height: 100vh;
-            overflow-y: auto; /* Allow vertical scrolling */
         }
 
         .navbar {
@@ -74,10 +72,10 @@
 
         .container {
             padding: 20px;
+            text-align: center;
         }
 
         h1 {
-            text-align: center;
             margin-bottom: 20px;
         }
 
@@ -85,8 +83,7 @@
             background-color: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
-            overflow-y: auto;
-            max-height: 40vh;
+            margin-bottom: 20px;
         }
 
         label {
@@ -96,7 +93,8 @@
             color: #ffcc00;
         }
 
-        input, textarea {
+        input,
+        textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -107,7 +105,8 @@
             font-size: 16px;
         }
 
-        input:focus, textarea:focus {
+        input:focus,
+        textarea:focus {
             outline: none;
             background-color: rgba(255, 255, 255, 0.3);
             box-shadow: 0px 0px 5px #ffcc00;
@@ -128,89 +127,56 @@
             background-color: #b88fe7;
         }
 
-        .problem-list {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            overflow-y: auto;
-            max-height: 40vh;
-        }
-
-        .problem-item {
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-        }
-
-        .problem-item p {
-            margin: 5px 0;
-            font-size: 14px;
-        }
-
-        .problem-item span {
-            font-weight: bold;
-            color: #b88fe7;
-        }
-
-        .problem-item select {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #fff;
-            border-radius: 5px;
-            padding: 5px;
-        }
-
-        .problem-item select:focus {
-            outline: none;
-            background-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0px 0px 5px #ffcc00;
-        }
-
-        .search-container {
+        .history {
             display: flex;
-            gap: 10px;
+            justify-content: space-between;
+            margin-top: 40px;
         }
 
-        .search-container input {
-            flex: 1;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #fff;
-            font-size: 16px;
-            border: none;
-        }
-
-        .search-container input:focus {
-            outline: none;
-            background-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0px 0px 5px #ffcc00;
-        }
-
-        .filter-container {
+        .history-column {
             background-color: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
-            margin-top: 10px;
+            width: 45%;
+            text-align: left;
         }
 
-        .filter-container select {
-            width: 100%;
-            padding: 10px;
+        .history-column h3 {
+            color: #b88fe7;
+            margin-bottom: 10px;
+        }
+
+        .history-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .history-column li {
+            margin: 5px 0;
+            color: #ddd;
+        }
+
+        .file-upload {
             margin-bottom: 15px;
-            border-radius: 5px;
-            border: none;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #fff;
+        }
+
+        .file-upload input {
+            padding: 5px;
             font-size: 16px;
         }
 
+        .file-link {
+            color: white; /* File link color */
+            text-decoration: none;
+        }
+
+        .file-link:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
     </style>
 </head>
 
 <body>
-
-    <!-- Navbar -->
     <div class="navbar">
         <div class="logo">
             <a href="home1" style="text-decoration: none; color: inherit;">
@@ -222,7 +188,7 @@
             <li><a href="lostandfound">Lost & Found</a></li>
             <li><a href="reportproblem">Report a Problem</a></li>
             <li><a href="profile1">Profile</a></li>
-            <li><a href="messages">Messages</a></li>
+            <li><a href="message1">Messages</a></li>
         </ul>
     </div>
 
@@ -234,29 +200,30 @@
             <input type="text" id="roomNumber" placeholder="Enter your room number">
 
             <label for="contactInfo">Contact Info:</label>
-            <input type="text" id="contactInfo" placeholder="Enter your contact info">
+            <input type="text" name="name" id="contactInfo" placeholder="Enter your contact info">
 
             <label for="problemDescription">Problem Description:</label>
             <textarea id="problemDescription" rows="4" placeholder="Describe the problem..."></textarea>
 
+            <div class="file-upload">
+                <label for="fileUpload">Upload a File (if any):</label>
+                <input type="file" id="fileUpload">
+            </div>
+
             <button class="btn" id="submitProblem">Submit Problem</button>
         </div>
 
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search problems...">
-        </div>
-
-        <div class="filter-container">
-            <label for="filter">Filter by Status:</label>
-            <select id="filter">
-                <option value="all">All</option>
-                <option value="pending">Pending</option>
-                <option value="resolved">Resolved</option>
-            </select>
-        </div>
-
-        <div class="problem-list" id="problemList">
-            <!-- Problems will be dynamically added here -->
+        <div class="history">
+            <div class="history-column">
+                <h3>Completed</h3>
+                <ul id="completedHistory">
+                </ul>
+            </div>
+            <div class="history-column">
+                <h3>Left</h3>
+                <ul id="leftHistory">
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -265,42 +232,37 @@
             const roomNumber = document.getElementById('roomNumber').value;
             const contactInfo = document.getElementById('contactInfo').value;
             const description = document.getElementById('problemDescription').value;
+            const fileUpload = document.getElementById('fileUpload').files[0];
 
             if (roomNumber && contactInfo && description) {
-                const problemItem = document.createElement('div');
-                problemItem.className = 'problem-item';
-                problemItem.innerHTML = `
-                    <p><span>Room Number:</span> ${roomNumber}</p>
-                    <p><span>Contact Info:</span> ${contactInfo}</p>
-                    <p><span>Description:</span> ${description}</p>
-                    <p><span>Status:</span> <select onchange="updateStatus(this)">
-                        <option value="pending">Pending</option>
-                        <option value="resolved">Resolved</option>
-                    </select></p>
-                `;
+                const problemItem = document.createElement('li');
+                const fileName = fileUpload ? fileUpload.name : 'No file uploaded';
+                const fileLink = fileUpload ? `<a href="#" class="file-link" onclick="viewFile('${URL.createObjectURL(fileUpload)}')">${fileName}</a>` : 'No file uploaded';
 
-                document.getElementById('problemList').appendChild(problemItem);
+                problemItem.innerHTML = `
+                    <strong>Room:</strong> ${roomNumber}, 
+                    <strong>Contact:</strong> ${contactInfo}, 
+                    <strong>Description:</strong> ${description}, 
+                    <strong>File:</strong> ${fileLink}`;
+                
+                document.getElementById('leftHistory').appendChild(problemItem);
+                clearForm();
             } else {
                 alert("Please fill all fields!");
             }
         };
 
-        function updateStatus(selectElement) {
-            const status = selectElement.value;
-            alert("Problem status updated to: " + status);
+        function clearForm() {
+            document.getElementById('roomNumber').value = '';
+            document.getElementById('contactInfo').value = '';
+            document.getElementById('problemDescription').value = '';
+            document.getElementById('fileUpload').value = ''; // Clear the file input
         }
 
-        document.getElementById('searchInput').oninput = function () {
-            const filter = this.value.toLowerCase();
-            const problems = document.querySelectorAll('.problem-item');
-
-            problems.forEach(problem => {
-                const text = problem.innerText.toLowerCase();
-                problem.style.display = text.includes(filter) ? '' : 'none';
-            });
-        };
+        function viewFile(fileUrl) {
+            const fileViewer = window.open(fileUrl, '_blank');
+            fileViewer.focus();
+        }
     </script>
-
-</body>
-
+</body> 
 </html>

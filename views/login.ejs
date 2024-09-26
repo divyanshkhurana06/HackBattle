@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HostelFix - Login</title>
     <link href="/css/login.css" rel="stylesheet" type="text/css">
+    <script src="../public/js/firebase.js"></script>
 </head>
 <body>
 
@@ -18,7 +19,7 @@
         </div>
         <p>Manage lost & found items and report hostel issues easily.</p>
 
-        <button class="google-btn" id="googleLoginBtn">Login with Google</button>
+        <button class="google-btn" id="googleLoginBtn" onclick="signInWithGooglePopup()">Login with Google</button>
 
         <p class="extra-link">Join our community and explore!</p>
     </div>
@@ -34,6 +35,5 @@
         </ul>
     </div>
 </div>
-
 </body>
 </html>

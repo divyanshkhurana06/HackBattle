@@ -171,18 +171,19 @@
 
         .team-member {
             text-align: center;
-            width: 150px;
+            width: 200px; /* Increased width */
             padding: 10px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Added shadow */
         }
 
         .team-member img {
-            width: 100%;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
+            width: 100%; /* Full width */
+            height: 200px; /* Increased height */
+            border-radius: 10%; /* Less circular */
+            object-fit: cover; /* Proper scaling */
             margin-bottom: 10px;
         }
 
@@ -216,7 +217,6 @@
             text-shadow: 0 0 10px #cf799e;
             color: #fff;
         }
-
     </style>
 </head>
 
@@ -233,7 +233,7 @@
             <li><a href="lostandfound">Lost & Found</a></li>
             <li><a href="reportproblem">Report a Problem</a></li>
             <li><a href="profile1">Profile</a></li>
-            <li><a href="messages">Messages</a></li>
+            <li><a href="message1">Messages</a></li>
         </ul>
     </div>
 
@@ -270,33 +270,28 @@
         <div class="scroll">
             <div class="team-member">
                 <img src="team-member1.jpg" alt="Team Member 1">
-                <h3>John Doe</h3>
-                <p>Founder & CEO</p>
+                <h3>Divyansh Khurana</h3>
+                <p>Project Manager</p>
             </div>
             <div class="team-member">
                 <img src="team-member2.jpg" alt="Team Member 2">
-                <h3>Jane Smith</h3>
-                <p>Marketing Head</p>
+                <h3>Suyash Tatiya</h3>
+                <p>Head Developer</p>
             </div>
             <div class="team-member">
                 <img src="team-member3.jpg" alt="Team Member 3">
-                <h3>Bob Johnson</h3>
-                <p>Lead Developer</p>
+                <h3>Vedika Agarwal</h3>
+                <p>Lead Designer</p>
             </div>
             <div class="team-member">
                 <img src="team-member4.jpg" alt="Team Member 4">
-                <h3>Alice Brown</h3>
-                <p>UX/UI Designer</p>
+                <h3>Tiana Chaudhary</h3>
+                <p>UI/UX Designer</p>
             </div>
             <div class="team-member">
                 <img src="team-member5.jpg" alt="Team Member 5">
-                <h3>Michael Green</h3>
-                <p>Data Scientist</p>
-            </div>
-            <div class="team-member">
-                <img src="team-member6.jpg" alt="Team Member 6">
-                <h3>Sara White</h3>
-                <p>Operations Manager</p>
+                <h3>R Madhavan</h3>
+                <p>Community Manager</p>
             </div>
         </div>
     </section>
@@ -304,10 +299,7 @@
     <!-- Footer -->
     <div class="footer">
         <p>By Team Negative Aura</p>
-        <p>
-            Fed by <span class="glow">Burger King                   </span>
-            |                      With help of <span class="glow">TechKnowGreen Solution Limited</span>
-        </p>
+        <p>Sponsored by <span class="glow">Fed by Burger King</span> | With help of <span class="glow">TechKnowGreen Solution Limited</span></p>
     </div>
 </body>
 
