@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #111111 40%, #0e3960 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+    color: #fff;
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 80px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 40px rgba(255, 255, 255, 0.3);
+    text-align: center;
+    width: 45%;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.container:first-child {
+    margin-right: 40px; /* Added space between two containers */
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #b88fe7;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.google-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #cf799e;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+}
+
+.google-btn:hover {
+    background-color: #c13527;
+    transform: scale(1.05);
+}
+
+.extra-link {
+    color: #bbb;
+    margin-top: 20px;
+    display: block;
+}
+
+.extra-link a {
+    color: #9862c4;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.extra-link a:hover {
+    color: #ffe066;
+}
+
+.services-info {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 60px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 40px rgba(255, 255, 255, 0.2);
+    width: 45%;
+}
+
+.services-info h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #9862c4;
+}
+
+.services-info ul {
+    list-style: none;
+    font-size: 18px;
+    color: #eaeaea;
+}
+
+.services-info ul li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.services-info ul li::before {
+    content: "✓";
+    color: #9862c4;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.services-info ul li span {
+    display: block;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.services-info ul li:hover span {
+    color: #ffe066;
+}
+
+@media (max-width: 1024px) {
+    .login-wrapper {
+        flex-direction: column;
+    }
+
+    .container, .services-info {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
